@@ -1,0 +1,106 @@
+body {
+     width:100%;
+     margin:0;
+     padding:0;
+     font-family: arial;
+     font-size: 12px;
+}
+h4{
+	background-color: #f1f1f1;
+}
+
+#mainDiv{
+	width:90%
+}
+
+#userInput{
+	width:70%;
+}
+
+#searchHeadTable{
+	width:100%;
+}
+
+#searchHeadTable tr td{
+	vertical-align: top;
+}
+
+#overlay {
+     visibility: hidden;
+     position: absolute;
+     left: 0px;
+     top: 0px;
+     width:100%;
+     height:100%;
+     text-align:center;
+     z-index: 1000;
+     background:black;
+}
+
+#overlayContent{
+     width:75%;
+     margin: 50px auto;
+     background-color: #fff;
+     border:1px solid #000;
+     padding:5px;
+     text-align:center;
+}
+
+#closeIcon{
+     text-decoration: none;
+     color:red;
+     font-weight: bolder;
+     background-image: url(../images/close_icon.gif);
+     background-repeat: no-repeat;    
+     width:16px;
+     height:16px;
+     display:block; 
+}
+
+#overlaySubContent{
+     width:90%;
+     margin: 25px auto;
+     background-color: #fff;     
+     padding:5px;
+     text-align:center;
+}
+
+#ruleHeaderDiv{
+	text-align: center;
+	color: brown; 
+	text-decoration: underline
+}
+
+.alignRight{
+	text-align: right;
+}
+
+#mainContentDiv{
+	width: 100%;
+}
+
+#beforeApplyRuleMainDiv{
+	width: 48%; 
+	float: left; 
+	border: 1px solid black;
+	padding:5px;
+}
+
+#afterApplyRuleMainDiv{
+	width: 49%; 
+	float: right; 
+	border: 1px solid black;
+	padding:5px;
+}
+
+#beforeApplyRuleDiv, #afterApplyRuleDiv{
+	background-color: #FFF7FE;
+}
+
+#beforeApplyRuleCSDiv, #afterApplyRuleCSDiv{
+	background-color: #EDF4FF;
+}
+
+.highlight{
+	background-color: #FFD9DF;
+}

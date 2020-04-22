@@ -1,0 +1,96 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Rule #0</title>
+	<%@include file="header.jsp"%>
+	<script>
+		function displayBeforeApplyingRule() {
+			//Logic here
+			document.getElementById("beforeApplyRuleDiv").innerHTML = document
+					.getElementById("userInput").value;
+		}
+		function jsEscape(userInput){
+			var value = (userInput!=null && userInput != "")?escape(userInput):null;
+			return value;
+		}
+		function displayAfterApplyingRule() {
+			//Logic here
+			var status = validateUserInput();
+		if(status){
+			displayBeforeApplyingRule();
+			document.getElementById("afterApplyRuleDiv").innerHTML =jsEscape(document
+					.getElementById("userInput").value);
+		}
+		}
+	</script>
+</head>
+
+<body>
+	<div id="ruleHeaderDiv">
+		<h3>RULE #0 - Never Insert Untrusted Data Except in Allowed Locations </h3>
+	</div>
+	<div class="alignRight">
+		<h3>
+			<a href='#' onclick='overlay("sourcecode/Rule0.txt")'>Source
+				Code</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="index.jsp">Home</a>&nbsp;&nbsp;&nbsp;
+		</h3>
+	</div>
+	<br />
+		<div id="beforeApplyRuleMainDiv">
+			<h4>Before Applying Rule</h4>			
+			<div id="beforeApplyRuleDiv">
+				<pre style="border:1px dotted black"> 
+ <span class="highlight">&lt;script&gt;<b>...NEVER PUT UNTRUSTED DATA HERE...</b>&lt;/script&gt;</span>  	
+ 	&lt;script&gt;document.write("UNTRUSTED DATA")&lt;/script&gt;
+ 			 
+ <span class="highlight">&lt;!--<b>...NEVER PUT UNTRUSTED DATA HERE...</b>--&gt;</span>    
+ 	&lt;!--
+		Server Name	: PROD1
+		Server Location : SFO
+		Server Username	: uat-server-1
+		Server Password	: $2hj5&S 
+	--&gt;
+ 
+ <span class="highlight">&lt;div <b>...NEVER PUT UNTRUSTED DATA HERE...</b>=test /&gt;</span> 	
+ 	&lt;div username="testuser1"/&gt; 
+ 			 
+ <span class="highlight">&lt;<b>NEVER PUT UNTRUSTED DATA HERE...</b> href="/test" /&gt;</span>
+ 	&lt;userid href="/user"&gt;alert("vshesh user")&lt;/userid&gt;
+ 		 
+ <span class="highlight">&lt;style&gt;<b>...NEVER PUT UNTRUSTED DATA HERE...</b>&lt;/style&gt;</span> 
+	&lt;style&gt;background-image:url('http://www.test.com/test/
+	                                  testImage.png')&lt;/style&gt;		
+			</pre>			
+			</div>
+		</div>
+		<div id="afterApplyRuleMainDiv">
+			<h4>After Applying Rule</h4>
+			<div id="afterApplyRuleDiv">
+				<pre style="border:1px dotted black"> 
+ <span class="highlight">&lt;script&gt;<b>...NEVER PUT UNTRUSTED DATA HERE...</b>&lt;/script&gt;</span>  	
+ 	- NEVER PUT UNTRUSTED DATA HERE directly in a script
+ 	- Apply the suitable rule from Rule #1 through Rule #5 
+ 			 
+ <span class="highlight">&lt;!--<b>...NEVER PUT UNTRUSTED DATA HERE...</b>--&gt;</span>    
+ 	- Confidential information and untrusted data should not be inside HTML comments 
+ 
+ <span class="highlight">&lt;div <b>...NEVER PUT UNTRUSTED DATA HERE...</b>=test /&gt;</span> 	
+ 	- NEVER PUT UNTRUSTED DATA HERE in an attribute name
+ 	- Apply the suitable rule from Rule #1 through Rule #5 
+ 			 
+ <span class="highlight">&lt;<b>NEVER PUT UNTRUSTED DATA HERE...</b> href="/test" /&gt;</span>
+ 	- NEVER PUT UNTRUSTED DATA HERE as a tag name
+ 	- Apply the suitable rule from Rule #1 through Rule #5 
+ 		 
+ <span class="highlight">&lt;style&gt;<b>...NEVER PUT UNTRUSTED DATA HERE...</b>&lt;/style&gt;</span> 
+	- NEVER PUT UNTRUSTED DATA HERE directly in CSS 
+	- Apply the suitable rule from Rule #1 through Rule #5			
+
+
+	</div>
+	<%@include file="overlay.jsp"%>
+</body>
+</html>
